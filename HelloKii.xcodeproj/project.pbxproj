@@ -112,11 +112,8 @@
 		9954F290190ADAC9006B788C /* HelloKii */ = {
 			isa = PBXGroup;
 			children = (
-				9954F299190ADAC9006B788C /* SAppDelegate.h */,
-				9954F29A190ADAC9006B788C /* SAppDelegate.m */,
+				99B749CD190AE80000D6ED96 /* code */,
 				9954F29C190ADAC9006B788C /* Main.storyboard */,
-				9954F29F190ADAC9006B788C /* SViewController.h */,
-				9954F2A0190ADAC9006B788C /* SViewController.m */,
 				9954F2A2190ADAC9006B788C /* Images.xcassets */,
 				9954F291190ADAC9006B788C /* Supporting Files */,
 			);
@@ -150,6 +147,17 @@
 				9954F2B2190ADAC9006B788C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		99B749CD190AE80000D6ED96 /* code */ = {
+			isa = PBXGroup;
+			children = (
+				9954F299190ADAC9006B788C /* SAppDelegate.h */,
+				9954F29A190ADAC9006B788C /* SAppDelegate.m */,
+				9954F29F190ADAC9006B788C /* SViewController.h */,
+				9954F2A0190ADAC9006B788C /* SViewController.m */,
+			);
+			name = code;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -457,6 +465,7 @@
 				9954F2BB190ADAC9006B788C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9954F2BC190ADAC9006B788C /* Build configuration list for PBXNativeTarget "HelloKiiTests" */ = {
 			isa = XCConfigurationList;
@@ -465,6 +474,7 @@
 				9954F2BE190ADAC9006B788C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
