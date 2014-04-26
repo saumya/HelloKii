@@ -76,5 +76,29 @@
     return isDone;
 }
 
++ (NSString *) createGroupWithName:(NSString *)gName
+{
+    NSString *gURI = @"";
+    
+    NSError *error;
+    NSString *groupName = @"myGroup";
+    
+    KiiGroup* group = [KiiGroup groupWithName:groupName];
+    [group saveSynchronous:&error];
+    
+    if (error != nil) {
+        // Group creation failed
+        // Please check error description/code to see what went wrong...
+        NSLog(@"ERROR : creating group.");
+    }else{
+        NSLog(@"SUCCESS : creating group.");
+        gURI = [group objectURI];
+    }
+    
+    // Get the reference URI.
+    //NSString *groupUri = [group objectURI];
+    return gURI;
+}
+
 
 @end

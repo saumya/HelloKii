@@ -20,6 +20,10 @@
 @property (nonatomic, retain) IBOutlet UITextField *tFName;
 @property (nonatomic, retain) IBOutlet UITextField *tLName;
 
+@property (nonatomic, retain) IBOutlet UITextField *tOrgName;
+
 - (IBAction)onUpdateProfile:(id)sender;
+- (IBAction)onCreateOrg:(id)sender;
+
 
 @end

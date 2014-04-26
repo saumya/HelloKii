@@ -18,6 +18,7 @@
 
 @synthesize tFName;
 @synthesize tLName;
+@synthesize tOrgName;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -63,6 +64,22 @@
         NSLog(@"Success : Profile update.");
     }else{
         NSLog(@"FAIL : Profile update.");
+    }
+}
+
+-(void)onCreateOrg:(id)sender
+{
+    //has created
+    // uri :kiicloud://groups/3jrjff89se3laughwwqcgb4he
+    // name :myFirstCompany
+    
+    NSString *sName = self.tOrgName.text;
+    NSString *groupURI = [SKii_Util createGroupWithName:sName];
+    if ([groupURI isEqualToString:@""]) {
+        NSLog(@"FAIL : Group Creation");
+    }else{
+        NSLog(@"SUCCESS : Group Creation");
+        NSLog(@"group URI:%@",groupURI);
     }
 }
 

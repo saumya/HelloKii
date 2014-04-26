@@ -19,4 +19,7 @@
 + (KiiUser *) registerUser:(NSString *)uName WithPassword:(NSString *)uPass;
 + (BOOL) updateProfile:(KiiUser *)user WithFirstname:(NSString *)fName AndLastname:(NSString *)lName;
 
++ (NSString *) createGroupWithName:(NSString *)gName;
+
+
 @end
