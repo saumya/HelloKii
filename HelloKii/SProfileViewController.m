@@ -38,6 +38,9 @@
     // Do any additional setup after loading the view.
     self.title = self.loggedInUser.username;
     //self.navigationItem.prompt = self.loggedInUser.username;
+    self.tFName.text = [self.loggedInUser getObjectForKey:@"firstName"];
+    self.tLName.text = [self.loggedInUser getObjectForKey:@"lastName"];
+    //
     [self pullDataFromKii];
     //
     //Tableview
