@@ -21,6 +21,7 @@
 
 + (NSString *) createGroupWithName:(NSString *)gName;
 + (NSArray *) getAllGroupsCreatedByMe:(KiiUser *)user;
++ (BOOL) deleteGroup:(KiiGroup *)group;
 
 
 @end

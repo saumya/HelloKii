@@ -49,4 +49,17 @@
 }
 */
 
+#pragma mark - User Action
+
+-(void) onTrashOrg:(id)sender
+{
+    NSLog(@"onTrashOrg");
+    BOOL isDone = [SKii_Util deleteGroup:self.currentOrg];
+    if(isDone == TRUE){
+        NSLog(@"SUCCESS : DELETE");
+    }else{
+        NSLog(@"FAIL : DELETE");
+    }
+}
+
 @end

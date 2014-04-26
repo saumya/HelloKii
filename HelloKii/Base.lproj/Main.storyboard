@@ -226,7 +226,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="My Organisation" id="H5G-GN-P6B"/>
+                    <navigationItem key="navigationItem" title="My Organisation" id="H5G-GN-P6B">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="3U8-qX-tTI">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="onTrashOrg:" destination="p55-F1-eWQ" id="thv-eA-2d1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="PGz-7Y-9Dq" kind="push" identifier="segueToTeamManage" id="8pz-Li-6PG"/>
                     </connections>

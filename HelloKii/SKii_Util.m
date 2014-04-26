@@ -139,4 +139,26 @@
     return ownerGroups;
 }
 
++(BOOL) deleteGroup:(KiiGroup *)group
+{
+    BOOL done =FALSE;
+    
+    NSError *error = nil;
+    // Instantiate the group.
+    // (Assume that groupUri has the reference URI of the target group).
+    //KiiGroup *group = [KiiGroup groupWithURI:groupUri];
+    
+    // Delete the group.
+    [group deleteSynchronous:&error];
+    if (error != nil) {
+        // Handle error.
+        NSLog(@"FAIL : DELETE GROUP");
+    }else{
+        NSLog(@"SUCCESS : DELETE GROUP");
+        done = TRUE;
+    }
+    
+    return done;
+}
+
 @end

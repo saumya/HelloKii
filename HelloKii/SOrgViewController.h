@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <KiiSDK/Kii.h>
 
+#import "SKii_Util.h"
+
 @interface SOrgViewController : UIViewController
 {
     //
 }
 
 @property (nonatomic,retain) KiiGroup *currentOrg;
+- (IBAction) onTrashOrg:(id)sender;
 
 @end
