@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SKii_Util.h"
 
 @interface SAppDelegate : UIResponder <UIApplicationDelegate>
 

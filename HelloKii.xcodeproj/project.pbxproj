@@ -21,6 +21,13 @@
 		9954F2AC190ADAC9006B788C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9954F28E190ADAC9006B788C /* UIKit.framework */; };
 		9954F2B4190ADAC9006B788C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9954F2B2190ADAC9006B788C /* InfoPlist.strings */; };
 		9954F2B6190ADAC9006B788C /* HelloKiiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9954F2B5190ADAC9006B788C /* HelloKiiTests.m */; };
+		99B749CF190BB78500D6ED96 /* KiiSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B749CE190BB78500D6ED96 /* KiiSDK.framework */; };
+		99B749D1190BB7F100D6ED96 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B749D0190BB7F100D6ED96 /* MobileCoreServices.framework */; };
+		99B749D3190BB7FE00D6ED96 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B749D2190BB7FE00D6ED96 /* Accounts.framework */; };
+		99B749D5190BB80A00D6ED96 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B749D4190BB80A00D6ED96 /* Social.framework */; };
+		99B749D7190BB81700D6ED96 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B749D6190BB81700D6ED96 /* ImageIO.framework */; };
+		99B749D9190BB82900D6ED96 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B749D8190BB82900D6ED96 /* libsqlite3.dylib */; };
+		99B749DC190BB86400D6ED96 /* SKii_Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B749DB190BB86400D6ED96 /* SKii_Util.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +60,14 @@
 		9954F2B1190ADAC9006B788C /* HelloKiiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HelloKiiTests-Info.plist"; sourceTree = "<group>"; };
 		9954F2B3190ADAC9006B788C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9954F2B5190ADAC9006B788C /* HelloKiiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloKiiTests.m; sourceTree = "<group>"; };
+		99B749CE190BB78500D6ED96 /* KiiSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KiiSDK.framework; sourceTree = "<group>"; };
+		99B749D0190BB7F100D6ED96 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		99B749D2190BB7FE00D6ED96 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		99B749D4190BB80A00D6ED96 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		99B749D6190BB81700D6ED96 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		99B749D8190BB82900D6ED96 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		99B749DA190BB86400D6ED96 /* SKii_Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKii_Util.h; sourceTree = "<group>"; };
+		99B749DB190BB86400D6ED96 /* SKii_Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKii_Util.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +75,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99B749D9190BB82900D6ED96 /* libsqlite3.dylib in Frameworks */,
+				99B749D7190BB81700D6ED96 /* ImageIO.framework in Frameworks */,
+				99B749D5190BB80A00D6ED96 /* Social.framework in Frameworks */,
+				99B749D3190BB7FE00D6ED96 /* Accounts.framework in Frameworks */,
+				99B749D1190BB7F100D6ED96 /* MobileCoreServices.framework in Frameworks */,
 				9954F28D190ADAC9006B788C /* CoreGraphics.framework in Frameworks */,
 				9954F28F190ADAC9006B788C /* UIKit.framework in Frameworks */,
 				9954F28B190ADAC9006B788C /* Foundation.framework in Frameworks */,
+				99B749CF190BB78500D6ED96 /* KiiSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +122,12 @@
 		9954F289190ADAC9006B788C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				99B749D8190BB82900D6ED96 /* libsqlite3.dylib */,
+				99B749D6190BB81700D6ED96 /* ImageIO.framework */,
+				99B749D4190BB80A00D6ED96 /* Social.framework */,
+				99B749D2190BB7FE00D6ED96 /* Accounts.framework */,
+				99B749D0190BB7F100D6ED96 /* MobileCoreServices.framework */,
+				99B749CE190BB78500D6ED96 /* KiiSDK.framework */,
 				9954F28A190ADAC9006B788C /* Foundation.framework */,
 				9954F28C190ADAC9006B788C /* CoreGraphics.framework */,
 				9954F28E190ADAC9006B788C /* UIKit.framework */,
@@ -156,6 +183,8 @@
 				9954F29A190ADAC9006B788C /* SAppDelegate.m */,
 				9954F29F190ADAC9006B788C /* SViewController.h */,
 				9954F2A0190ADAC9006B788C /* SViewController.m */,
+				99B749DA190BB86400D6ED96 /* SKii_Util.h */,
+				99B749DB190BB86400D6ED96 /* SKii_Util.m */,
 			);
 			name = code;
 			sourceTree = "<group>";
@@ -261,6 +290,7 @@
 				9954F29B190ADAC9006B788C /* SAppDelegate.m in Sources */,
 				9954F2A1190ADAC9006B788C /* SViewController.m in Sources */,
 				9954F297190ADAC9006B788C /* main.m in Sources */,
+				99B749DC190BB86400D6ED96 /* SKii_Util.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +415,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloKii/HelloKii-Prefix.pch";
 				INFOPLIST_FILE = "HelloKii/HelloKii-Info.plist";
@@ -398,6 +432,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HelloKii/HelloKii-Prefix.pch";
 				INFOPLIST_FILE = "HelloKii/HelloKii-Info.plist";
