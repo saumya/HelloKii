@@ -14,6 +14,8 @@
 
 @implementation SEntryViewController
 
+@synthesize loggedinUser;
+
 @synthesize lMessage;
 @synthesize tUName;
 @synthesize tUPassword;
@@ -55,14 +57,16 @@
 {
     NSString *un = self.tUName.text;
     NSString *up = self.tUPassword.text;
-    KiiUser *loggedinUser = [SKii_Util loginUser:un WithPassword:up];
-    NSLog(@"onLogin : %@",loggedinUser);
-    if (loggedinUser == nil) {
+    KiiUser *user = [SKii_Util loginUser:un WithPassword:up];
+    NSLog(@"onLogin : %@",user);
+    if (user == nil) {
         NSLog(@"FAIL : Login : No User found!");
         self.lMessage.text = @"Login : FAIL";
     }else{
         NSLog(@"SUCCESS : Login.");
+        self.loggedinUser = user;
         self.lMessage.text = @"Login : SUCCESS";
+        [self performSegueWithIdentifier: @"segueToProfile" sender: self];
     }
 }
 -(void)onRegister:(id)sender
@@ -77,6 +81,20 @@
     }else{
         NSLog(@"SUCCESS : Registration.");
         self.lMessage.text = @"Registration : SUCCESS";
+    }
+}
+
+#pragma mark - segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"segueToProfile"])
+    {
+        // Get reference to the destination view controller
+        SProfileViewController *vc = [segue destinationViewController];
+        // Pass any objects to the view controller here, like...
+        //[vc setMyObjectHere:object];
+        vc.loggedInUser=self.loggedinUser;
     }
 }
 

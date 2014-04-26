@@ -53,5 +53,28 @@
     return user;
 }
 
++ (BOOL) updateProfile:(KiiUser *)user WithFirstname:(NSString *)fName AndLastname:(NSString *)lName
+{
+    NSLog(@"updateProfile:WithFirstname:AndLastname:");
+    BOOL isDone = FALSE;
+    NSError *error = nil;
+    //KiiUser *user = [KiiUser currentUser];
+    //default fields
+    NSString *dName = [NSString stringWithFormat:@"%@ %@",fName,lName];
+    [user setDisplayName:dName];
+    //custom fields
+    [user setObject:fName forKey:@"firstName"];
+    [user setObject:lName forKey:@"lastName"];
+    
+    [user saveSynchronous:&error];
+    if (error != nil) {
+        NSLog(@"ERROR : Updating data");
+        NSLog(@"%@",error);
+    }else{
+        isDone = TRUE;
+    }
+    return isDone;
+}
+
 
 @end

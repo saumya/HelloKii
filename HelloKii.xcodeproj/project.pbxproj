@@ -29,6 +29,7 @@
 		99B749D9190BB82900D6ED96 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 99B749D8190BB82900D6ED96 /* libsqlite3.dylib */; };
 		99B749DC190BB86400D6ED96 /* SKii_Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B749DB190BB86400D6ED96 /* SKii_Util.m */; };
 		99B749E1190BBC1200D6ED96 /* SEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B749E0190BBC1200D6ED96 /* SEntryViewController.m */; };
+		99B749E4190BC77F00D6ED96 /* SProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B749E3190BC77F00D6ED96 /* SProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		99B749DB190BB86400D6ED96 /* SKii_Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKii_Util.m; sourceTree = "<group>"; };
 		99B749DF190BBC1200D6ED96 /* SEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEntryViewController.h; sourceTree = "<group>"; };
 		99B749E0190BBC1200D6ED96 /* SEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEntryViewController.m; sourceTree = "<group>"; };
+		99B749E2190BC77F00D6ED96 /* SProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SProfileViewController.h; sourceTree = "<group>"; };
+		99B749E3190BC77F00D6ED96 /* SProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +200,8 @@
 				9954F2A0190ADAC9006B788C /* SViewController.m */,
 				99B749DF190BBC1200D6ED96 /* SEntryViewController.h */,
 				99B749E0190BBC1200D6ED96 /* SEntryViewController.m */,
+				99B749E2190BC77F00D6ED96 /* SProfileViewController.h */,
+				99B749E3190BC77F00D6ED96 /* SProfileViewController.m */,
 			);
 			name = viewcontroller;
 			sourceTree = "<group>";
@@ -310,6 +315,7 @@
 			files = (
 				9954F29B190ADAC9006B788C /* SAppDelegate.m in Sources */,
 				9954F2A1190ADAC9006B788C /* SViewController.m in Sources */,
+				99B749E4190BC77F00D6ED96 /* SProfileViewController.m in Sources */,
 				99B749E1190BBC1200D6ED96 /* SEntryViewController.m in Sources */,
 				9954F297190ADAC9006B788C /* main.m in Sources */,
 				99B749DC190BB86400D6ED96 /* SKii_Util.m in Sources */,

@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <KiiSDK/Kii.h>
 #import "SKii_Util.h"
+#import "SProfileViewController.h"
 
 @interface SEntryViewController : UIViewController
 {
     //
 }
+
+@property (nonatomic, retain) KiiUser *loggedinUser;
 
 @property (nonatomic, retain) IBOutlet UILabel *lMessage;
 @property (nonatomic, retain) IBOutlet UITextField *tUName;
