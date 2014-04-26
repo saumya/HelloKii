@@ -16,6 +16,7 @@
 
 @synthesize loggedInUser;
 @synthesize allMyCreatedOrgs;
+@synthesize userSelectedGroup;
 
 @synthesize tFName;
 @synthesize tLName;
@@ -96,7 +97,7 @@
     //cell.detailTextLabel.text = [uObj getObjectForKey:@"teamName"];
     
     cell.textLabel.text = kGroup.name;
-    cell.detailTextLabel.text = [kGroup objectURI];
+    //cell.detailTextLabel.text = [kGroup objectURI];
     
     
     return cell;
@@ -105,17 +106,33 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"tableView:didSelectRowAtIndexPath:");
-    /*
+    
     //get data
-    KiiObject *uObj= [self.aUserList objectAtIndex:indexPath.row];
-    self.selectedUser = uObj;
+    //KiiObject *uObj= [self.aUserList objectAtIndex:indexPath.row];
+    //self.selectedUser = uObj;
     //NSLog(@"%@",uObj);
-    NSLog(@"%@",[uObj getObjectForKey:@"userName"]);
+    //NSLog(@"%@",[uObj getObjectForKey:@"userName"]);
     //
     //self.selectedUserData=uObj;
     //execute segue programmatically
-    [self performSegueWithIdentifier: @"segueToUserDetailView" sender: self];
-    */
+    //[self performSegueWithIdentifier: @"segueToUserDetailView" sender: self];
+    
+    KiiGroup *kGroup = [self.allMyCreatedOrgs objectAtIndex:indexPath.row];
+    NSLog(@"selectedGroup :%@",kGroup);
+    //NSLog(@"Org Name = %@",kGroup.name);
+    self.userSelectedGroup = kGroup;
+    //move to next view
+    [self performSegueWithIdentifier:@"segueToOrg" sender:self];
+}
+
+#pragma mark - segue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"segueToOrg"])
+    {
+        SOrgViewController *vc = [segue destinationViewController];
+        vc.currentOrg = self.userSelectedGroup;
+    }
 }
 
 #pragma mark - Utility

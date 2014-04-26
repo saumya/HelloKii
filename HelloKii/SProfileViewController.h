@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <KiiSDK/Kii.h>
 #import "SKii_Util.h"
+#import "SOrgViewController.h"
 
 @interface SProfileViewController : UIViewController
 <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
@@ -18,6 +19,7 @@
 
 @property (nonatomic, retain) KiiUser *loggedInUser;
 @property (nonatomic, retain) NSMutableArray *allMyCreatedOrgs;
+@property (nonatomic, retain) KiiGroup *userSelectedGroup;
 
 @property (nonatomic, retain) IBOutlet UITextField *tFName;
 @property (nonatomic, retain) IBOutlet UITextField *tLName;

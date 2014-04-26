@@ -166,10 +166,10 @@
             </objects>
             <point key="canvasLocation" x="1137" y="-127"/>
         </scene>
-        <!--View Controller - My Organisation-->
+        <!--Org View Controller - My Organisation-->
         <scene sceneID="evt-cQ-qYJ">
             <objects>
-                <viewController id="p55-F1-eWQ" sceneMemberID="viewController">
+                <viewController id="p55-F1-eWQ" customClass="SOrgViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zcR-f1-f9s"/>
                         <viewControllerLayoutGuide type="bottom" id="vwO-7J-NoV"/>

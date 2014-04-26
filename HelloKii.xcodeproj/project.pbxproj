@@ -30,6 +30,7 @@
 		99B749DC190BB86400D6ED96 /* SKii_Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B749DB190BB86400D6ED96 /* SKii_Util.m */; };
 		99B749E1190BBC1200D6ED96 /* SEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B749E0190BBC1200D6ED96 /* SEntryViewController.m */; };
 		99B749E4190BC77F00D6ED96 /* SProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B749E3190BC77F00D6ED96 /* SProfileViewController.m */; };
+		99B749E7190C43D700D6ED96 /* SOrgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B749E6190C43D700D6ED96 /* SOrgViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		99B749E0190BBC1200D6ED96 /* SEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEntryViewController.m; sourceTree = "<group>"; };
 		99B749E2190BC77F00D6ED96 /* SProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SProfileViewController.h; sourceTree = "<group>"; };
 		99B749E3190BC77F00D6ED96 /* SProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SProfileViewController.m; sourceTree = "<group>"; };
+		99B749E5190C43D700D6ED96 /* SOrgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOrgViewController.h; sourceTree = "<group>"; };
+		99B749E6190C43D700D6ED96 /* SOrgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOrgViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +205,8 @@
 				99B749E0190BBC1200D6ED96 /* SEntryViewController.m */,
 				99B749E2190BC77F00D6ED96 /* SProfileViewController.h */,
 				99B749E3190BC77F00D6ED96 /* SProfileViewController.m */,
+				99B749E5190C43D700D6ED96 /* SOrgViewController.h */,
+				99B749E6190C43D700D6ED96 /* SOrgViewController.m */,
 			);
 			name = viewcontroller;
 			sourceTree = "<group>";
@@ -318,6 +323,7 @@
 				99B749E4190BC77F00D6ED96 /* SProfileViewController.m in Sources */,
 				99B749E1190BBC1200D6ED96 /* SEntryViewController.m in Sources */,
 				9954F297190ADAC9006B788C /* main.m in Sources */,
+				99B749E7190C43D700D6ED96 /* SOrgViewController.m in Sources */,
 				99B749DC190BB86400D6ED96 /* SKii_Util.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
