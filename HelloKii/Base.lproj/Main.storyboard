@@ -157,6 +157,8 @@
                     <connections>
                         <outlet property="tFName" destination="e7c-6j-R6m" id="g2P-rn-7jN"/>
                         <outlet property="tLName" destination="Vrh-uk-Rjp" id="6i3-Ne-YsP"/>
+                        <outlet property="tOrgName" destination="S5K-hg-RKh" id="NJx-82-p6f"/>
+                        <outlet property="tvAllMyOrgs" destination="1Jy-71-zZd" id="CRz-bK-qEM"/>
                         <segue destination="p55-F1-eWQ" kind="push" identifier="segueToOrg" id="oqr-pW-qFb"/>
                     </connections>
                 </viewController>

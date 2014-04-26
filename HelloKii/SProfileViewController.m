@@ -15,10 +15,12 @@
 @implementation SProfileViewController
 
 @synthesize loggedInUser;
+@synthesize allMyCreatedOrgs;
 
 @synthesize tFName;
 @synthesize tLName;
 @synthesize tOrgName;
+@synthesize tvAllMyOrgs;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,6 +37,15 @@
     // Do any additional setup after loading the view.
     self.title = self.loggedInUser.username;
     //self.navigationItem.prompt = self.loggedInUser.username;
+    [self pullDataFromKii];
+    //
+    //Tableview
+    //adding datasource and delegate
+    self.tvAllMyOrgs.delegate = self;
+    self.tvAllMyOrgs.dataSource = self;
+    [self.tvAllMyOrgs registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,6 +64,66 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return self.allMyCreatedOrgs.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    //cell = [self tableCellWithHeight:height clickable:NO withArrowAccessory:NO];
+    
+    // Configure the cell...
+    //cell.textLabel.text = @"world";
+    //cell.detailTextLabel.text = @"hello";
+    
+    KiiGroup *kGroup= [self.allMyCreatedOrgs objectAtIndex:indexPath.row];
+    
+    //cell.textLabel.text = [uObj getObjectForKey:@"userName"];
+    //cell.detailTextLabel.text = [uObj getObjectForKey:@"teamName"];
+    
+    cell.textLabel.text = kGroup.name;
+    cell.detailTextLabel.text = [kGroup objectURI];
+    
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"tableView:didSelectRowAtIndexPath:");
+    /*
+    //get data
+    KiiObject *uObj= [self.aUserList objectAtIndex:indexPath.row];
+    self.selectedUser = uObj;
+    //NSLog(@"%@",uObj);
+    NSLog(@"%@",[uObj getObjectForKey:@"userName"]);
+    //
+    //self.selectedUserData=uObj;
+    //execute segue programmatically
+    [self performSegueWithIdentifier: @"segueToUserDetailView" sender: self];
+    */
+}
+
+#pragma mark - Utility
+-(void)pullDataFromKii
+{
+    NSArray *myCreatedGroups = [SKii_Util getAllGroupsCreatedByMe:self.loggedInUser];
+    self.allMyCreatedOrgs = [NSMutableArray arrayWithArray:myCreatedGroups];
+}
 
 -(void)onUpdateProfile:(id)sender
 {

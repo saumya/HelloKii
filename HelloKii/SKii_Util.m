@@ -27,6 +27,8 @@
              andSite:kiiSiteUS];
 }
 
+#pragma mark - User
+
 + (KiiUser *) loginUser:(NSString *)uName WithPassword:(NSString *)uPass
 {
     NSError *error;
@@ -76,12 +78,14 @@
     return isDone;
 }
 
+#pragma mark - Group
 + (NSString *) createGroupWithName:(NSString *)gName
 {
     NSString *gURI = @"";
     
     NSError *error;
-    NSString *groupName = @"myGroup";
+    //NSString *groupName = @"myGroup";
+    NSString *groupName = gName;
     
     KiiGroup* group = [KiiGroup groupWithName:groupName];
     [group saveSynchronous:&error];
@@ -100,5 +104,39 @@
     return gURI;
 }
 
++ (NSArray *) getAllGroupsCreatedByMe:(KiiUser *)user
+{
+    // Get the current login user
+    //KiiUser* user = [KiiUser currentUser];
+    
+    NSError* error = nil;
+    /*
+    // Get a list of groups in which the current user is a member
+    NSArray* memberGroups = [user memberOfGroupsSynchronous:&error];
+    if (error == nil) {
+        for (KiiGroup* group in memberGroups) {
+            // do something with each group
+        }
+    } else {
+        // Getting a group list failed
+        // Please check error description/code to see what went wrong...
+    }
+    */
+    // Get a list of groups in which the current user is a owner
+    NSArray* ownerGroups = [user ownerOfGroupsSynchronous:&error];
+    if (error == nil) {
+        /*
+        for (KiiGroup* group in ownerGroups) {
+            // do something with each group
+        }*/
+        NSLog(@"SUCCESS : got groups.");
+    } else {
+        // Getting a group list failed
+        // Please check error description/code to see what went wrong...
+        NSLog(@"FAIL : got groups.");
+        NSLog(@"%@",error);
+    }
+    return ownerGroups;
+}
 
 @end

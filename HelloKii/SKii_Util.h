@@ -20,6 +20,7 @@
 + (BOOL) updateProfile:(KiiUser *)user WithFirstname:(NSString *)fName AndLastname:(NSString *)lName;
 
 + (NSString *) createGroupWithName:(NSString *)gName;
++ (NSArray *) getAllGroupsCreatedByMe:(KiiUser *)user;
 
 
 @end
