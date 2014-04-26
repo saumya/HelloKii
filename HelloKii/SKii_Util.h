@@ -15,4 +15,7 @@
 }
 
 + (void) initKii;
++ (KiiUser *) loginUser:(NSString *)uName WithPassword:(NSString *)uPass;
++ (KiiUser *) registerUser:(NSString *)uName WithPassword:(NSString *)uPass;
+
 @end

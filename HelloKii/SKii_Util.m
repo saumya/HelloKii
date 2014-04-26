@@ -27,6 +27,31 @@
              andSite:kiiSiteUS];
 }
 
++ (KiiUser *) loginUser:(NSString *)uName WithPassword:(NSString *)uPass
+{
+    NSError *error;
+    KiiUser *user =[KiiUser authenticateSynchronous:uName
+                                       withPassword:uPass
+                                           andError:&error];
+    if (error != nil) {
+        NSLog(@"ERROR : Login");
+        NSLog(@"%@",error);
+    }
+    return user;
+}
+
++ (KiiUser *) registerUser:(NSString *)uName WithPassword:(NSString *)uPass
+{
+    NSLog(@"registerUserWithUserName:%@ andPassword=%@",uName,uPass);
+    NSError *error = nil;
+    KiiUser *user = [KiiUser userWithUsername:uName andPassword:uPass];
+    [user performRegistrationSynchronous:&error];
+    if (error != nil) {
+        NSLog(@"ERROR : Register");
+        NSLog(@"%@",error);
+    }
+    return user;
+}
 
 
 @end

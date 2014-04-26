@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller - XOne-->
+        <!--Entry View Controller - XOne-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="SViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="SEntryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -34,14 +34,30 @@
                                 <state key="normal" title="Login">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onLogin:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zZi-yx-hUl"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMe-Tt-urB">
+                                <rect key="frame" x="20" y="73" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="XOne" id="qpj-7M-U6S">
-                        <barButtonItem key="rightBarButtonItem" title="Register" id="3Zi-ee-5GO"/>
+                        <barButtonItem key="rightBarButtonItem" title="Register" id="3Zi-ee-5GO">
+                            <connections>
+                                <action selector="onRegister:" destination="vXZ-lx-hvc" id="kaP-F3-Fh1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="lMessage" destination="BMe-Tt-urB" id="0nF-48-oK3"/>
+                        <outlet property="tUName" destination="xv0-Gk-8fL" id="iSu-KP-zJA"/>
+                        <outlet property="tUPassword" destination="Rln-um-wJh" id="eaC-Xh-tdY"/>
                         <segue destination="xIb-jU-g19" kind="push" identifier="segueToProfile" id="Ohr-bc-93p"/>
                     </connections>
                 </viewController>
