@@ -94,13 +94,19 @@
     //cell.textLabel.text = @"world";
     //cell.detailTextLabel.text = @"hello";
     
-    KiiGroup *kGroup= [self.allMyCreatedOrgs objectAtIndex:indexPath.row];
+    //KiiGroup *kGroup= [self.allMyCreatedOrgs objectAtIndex:indexPath.row];
     
     //cell.textLabel.text = [uObj getObjectForKey:@"userName"];
     //cell.detailTextLabel.text = [uObj getObjectForKey:@"teamName"];
     
-    cell.textLabel.text = kGroup.name;
+    //cell.textLabel.text = kGroup.name;
     //cell.detailTextLabel.text = [kGroup objectURI];
+    
+    KiiObject *kObject = [self.allMyCreatedOrgs objectAtIndex:indexPath.row];
+    cell.textLabel.text = [kObject getObjectForKey:@"companyName"];
+    //cell.detailTextLabel.text = [kObject getObjectForKey:@"companyURI"];
+    
+    
     
     
     return cell;
@@ -119,11 +125,36 @@
     //self.selectedUserData=uObj;
     //execute segue programmatically
     //[self performSegueWithIdentifier: @"segueToUserDetailView" sender: self];
-    
+    /*
     KiiGroup *kGroup = [self.allMyCreatedOrgs objectAtIndex:indexPath.row];
     NSLog(@"selectedGroup :%@",kGroup);
     //NSLog(@"Org Name = %@",kGroup.name);
     self.userSelectedGroup = kGroup;
+    */
+    KiiObject *kObject = [self.allMyCreatedOrgs objectAtIndex:indexPath.row];
+    NSLog(@"selectedOrg :%@",kObject);
+    //NSLog(@"Org Name = %@",kGroup.name);
+    NSString *gURI = [kObject getObjectForKey:@"companyURI"];
+    //
+    NSError *error;
+    // Instantiate the group again.
+    // (Assume that groupUri has the reference URI of the target group).
+    KiiGroup *group = [KiiGroup groupWithURI:gURI];
+    // Refresh the instance to make it up-to-date.
+    [group refreshSynchronous:&error];
+    if (error != NULL) {
+        // Handle error.
+        NSLog(@"ERROR : Refreshing the group!");
+    }else{
+        NSLog(@"SUCCESS : Refreshing the group!");
+    }
+    
+    // Do something with the group reference.
+    // NSString *groupName = group.name;
+    //
+    
+    self.userSelectedGroup = group;
+    
     //move to next view
     [self performSegueWithIdentifier:@"segueToOrg" sender:self];
 }
@@ -142,8 +173,12 @@
 #pragma mark - Utility
 -(void)pullDataFromKii
 {
-    NSArray *myCreatedGroups = [SKii_Util getAllGroupsCreatedByMe:self.loggedInUser];
-    self.allMyCreatedOrgs = [NSMutableArray arrayWithArray:myCreatedGroups];
+    //NSArray *myCreatedGroups = [SKii_Util getAllGroupsCreatedByMe:self.loggedInUser];
+    //self.allMyCreatedOrgs = [NSMutableArray arrayWithArray:myCreatedGroups];
+    
+    NSMutableArray *myCreatedCompanies = [SKii_Util getAllFromUserScope:self.loggedInUser WithBucketName:@"companies"];
+    NSLog(@"result=%@",myCreatedCompanies);
+    self.allMyCreatedOrgs = myCreatedCompanies;
 }
 
 -(void)onUpdateProfile:(id)sender

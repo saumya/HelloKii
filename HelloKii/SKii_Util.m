@@ -197,6 +197,28 @@
     */
 }
 
++ (NSMutableArray *) getAllFromUserScope:(KiiUser *)user WithBucketName:(NSString *)bucketName
+{
+    NSError *error = nil;
+    //NSString *bucketName = @"companies";
+    KiiBucket *bucket = [user bucketWithName:bucketName];
+    KiiQuery *query = [KiiQuery queryWithClause:nil];
+    
+    NSMutableArray *allResults = [NSMutableArray array];
+    KiiQuery *nextQuery;
+    NSArray *results = [bucket executeQuerySynchronous:query
+                                             withError:&error
+                                               andNext:&nextQuery];
+    [allResults addObjectsFromArray:results];
+    if (error != nil) {
+        NSLog(@"ERROR : getting data from Bucket=%@",bucketName);
+        NSLog(@"%@",error);
+    }else{
+        NSLog(@"SUCCESS : getting data from Bucket");
+    }
+    return allResults;
+}
+
 #pragma mark - Bucket for companies
 + (BOOL)saveInUserScopeBucket:(KiiUser *)user CompanyName:(NSString *)name AndURI:(NSString *)uri
 {
