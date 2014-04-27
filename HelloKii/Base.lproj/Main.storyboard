@@ -204,6 +204,9 @@
                                 <state key="normal" title="Add Team">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onAddTeam:" destination="p55-F1-eWQ" eventType="touchUpInside" id="UcN-Eg-Bgp"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Role Ex: Developer, Manager" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3D3-50-WtI">
                                 <rect key="frame" x="12" y="140" width="205" height="30"/>
@@ -217,6 +220,9 @@
                                 <state key="normal" title="Add Role">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onAddRole:" destination="p55-F1-eWQ" eventType="touchUpInside" id="QTB-pI-SIh"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fg7-H1-6Y2">
                                 <rect key="frame" x="20" y="222" width="280" height="238"/>
@@ -235,6 +241,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="tPositionName" destination="3D3-50-WtI" id="cnQ-Ow-0kj"/>
+                        <outlet property="tTeamName" destination="V1G-de-Y4A" id="1xg-nC-1RL"/>
                         <segue destination="PGz-7Y-9Dq" kind="push" identifier="segueToTeamManage" id="8pz-Li-6PG"/>
                     </connections>
                 </viewController>

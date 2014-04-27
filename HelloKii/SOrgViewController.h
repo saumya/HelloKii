@@ -17,7 +17,11 @@
 }
 
 @property (nonatomic, retain) KiiUser *loggedInUser;
-@property (nonatomic,retain) KiiGroup *currentOrg;
+@property (nonatomic, retain) KiiGroup *currentOrg;
+
+@property (nonatomic, retain) IBOutlet UITextField *tPositionName;
+@property (nonatomic, retain) IBOutlet UITextField *tTeamName;
+
 - (IBAction) onRemoveOrg:(id)sender;
 
 - (IBAction) onAddTeam:(id)sender;

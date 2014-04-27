@@ -197,6 +197,7 @@
     */
 }
 
+#pragma mark - Bucket for companies
 + (BOOL)saveInUserScopeBucket:(KiiUser *)user CompanyName:(NSString *)name AndURI:(NSString *)uri
 {
     BOOL isDone = FALSE;
@@ -270,6 +271,153 @@
     return isDone;
 }
 
+#pragma mark - Bucket for positions
++ (BOOL)saveInUserScopeBucket:(KiiUser *)user PositionName:(NSString *)name AndURI:(NSString *)uri
+{
+    BOOL isDone = FALSE;
+    
+    NSError *error;
+    NSString *bucketName = @"positions";
+    
+    KiiBucket *bucket = [user bucketWithName:bucketName];
+    
+    KiiObject *obj = [bucket createObject];
+    [obj setObject:name forKey:@"positionName"];
+    [obj setObject:uri forKey:@"positionURI"];
+    [obj saveSynchronous:&error];
+    
+    if (error != nil) {
+        NSLog(@"ERROR : creating bucket : in userscope.");
+        NSLog(@"%@",error);
+    }else{
+        NSLog(@"SUCCESS : creating bucket :");
+        isDone = TRUE;
+    }
+    
+    return isDone;
+}
+
++ (BOOL)removeFromUserScopeBucket:(KiiUser *)user PositionName:(NSString *)name AndURI:(NSString *)uri
+{
+    BOOL isDone = FALSE;
+    
+    NSError *error = nil;
+    NSString *bucketName = @"positions";
+    KiiBucket *bucket = [user bucketWithName:bucketName];
+    
+    KiiClause *clause1 = [KiiClause equals:@"positionName" value:name];
+    KiiClause *clause2 = [KiiClause equals:@"positionURI" value:uri];
+    KiiClause *totalClause = [KiiClause and:clause1, clause2, nil];
+    
+    KiiQuery *query = [KiiQuery queryWithClause:totalClause];
+    
+    NSMutableArray *allResults = [NSMutableArray array];
+    KiiQuery *nextQuery;
+    NSArray *results = [bucket executeQuerySynchronous:query
+                                             withError:&error
+                                               andNext:&nextQuery];
+    [allResults addObjectsFromArray:results];
+    
+    //
+    if (error != nil) {
+        NSLog(@"removeFromUserScopeBucket:PositionName:AndURI: ");
+        NSLog(@"ERROR:Object not Found in Bucket.");
+        NSLog(@"%@",error);
+    }else{
+        NSInteger index = 0;
+        KiiObject *object = [allResults objectAtIndex:index];
+        //
+        //delete
+        //KiiObject *object = [KiiObject objectWithURI:@"_URI_OF_THE_OBJECT_"];
+        NSError *error1;
+        [object deleteSynchronous:&error1];
+        if(error1 != nil) {
+            // Unable to delete object
+            // Please check error description/code to see what went wrong...
+            NSLog(@"removeFromUserScopeBucket:PositionName:AndURI: ");
+            NSLog(@"ERROR:Could not delete Object.");
+            NSLog(@"%@",error1);
+        }else{
+            isDone = TRUE;
+        }
+    }
+    
+    return isDone;
+}
+
+#pragma mark - Bucket for teams
++ (BOOL)saveInUserScopeBucket:(KiiUser *)user TeamName:(NSString *)name AndURI:(NSString *)uri
+{
+    BOOL isDone = FALSE;
+    
+    NSError *error;
+    NSString *bucketName = @"teams";
+    
+    KiiBucket *bucket = [user bucketWithName:bucketName];
+    
+    KiiObject *obj = [bucket createObject];
+    [obj setObject:name forKey:@"teamName"];
+    [obj setObject:uri forKey:@"teamURI"];
+    [obj saveSynchronous:&error];
+    
+    if (error != nil) {
+        NSLog(@"ERROR : creating bucket : in userscope.");
+        NSLog(@"%@",error);
+    }else{
+        NSLog(@"SUCCESS : creating bucket :");
+        isDone = TRUE;
+    }
+    
+    return isDone;
+}
+
++ (BOOL)removeFromUserScopeBucket:(KiiUser *)user TeamName:(NSString *)name AndURI:(NSString *)uri
+{
+    BOOL isDone = FALSE;
+    
+    NSError *error = nil;
+    NSString *bucketName = @"teams";
+    KiiBucket *bucket = [user bucketWithName:bucketName];
+    
+    KiiClause *clause1 = [KiiClause equals:@"teamName" value:name];
+    KiiClause *clause2 = [KiiClause equals:@"teamURI" value:uri];
+    KiiClause *totalClause = [KiiClause and:clause1, clause2, nil];
+    
+    KiiQuery *query = [KiiQuery queryWithClause:totalClause];
+    
+    NSMutableArray *allResults = [NSMutableArray array];
+    KiiQuery *nextQuery;
+    NSArray *results = [bucket executeQuerySynchronous:query
+                                             withError:&error
+                                               andNext:&nextQuery];
+    [allResults addObjectsFromArray:results];
+    
+    //
+    if (error != nil) {
+        NSLog(@"removeFromUserScopeBucket:TeamName:AndURI: ");
+        NSLog(@"ERROR:Object not Found in Bucket.");
+        NSLog(@"%@",error);
+    }else{
+        NSInteger index = 0;
+        KiiObject *object = [allResults objectAtIndex:index];
+        //
+        //delete
+        //KiiObject *object = [KiiObject objectWithURI:@"_URI_OF_THE_OBJECT_"];
+        NSError *error1;
+        [object deleteSynchronous:&error1];
+        if(error1 != nil) {
+            // Unable to delete object
+            // Please check error description/code to see what went wrong...
+            NSLog(@"removeFromUserScopeBucket:TeamName:AndURI: ");
+            NSLog(@"ERROR:Could not delete Object.");
+            NSLog(@"%@",error1);
+        }else{
+            isDone = TRUE;
+        }
+    }
+    
+    return isDone;
+}
 
 
 

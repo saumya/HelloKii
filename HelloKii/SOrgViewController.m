@@ -17,6 +17,9 @@
 @synthesize loggedInUser;
 @synthesize currentOrg;
 
+@synthesize tPositionName;
+@synthesize tTeamName;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -78,27 +81,47 @@
 
 -(void) onAddTeam:(id)sender
 {
-    NSLog(@"onAddTeam : TODO");
-    /*
-    //BOOL isDone = [SKii_Util deleteGroup:self.currentOrg];
-    
-    if(isDone == TRUE){
-        NSLog(@"SUCCESS : DELETE");
+    NSLog(@"onAddTeam : ");
+    NSString *sName = self.tTeamName.text;
+    NSString *uri = [SKii_Util createGroupWithName:sName];
+    if ([uri isEqualToString:@""]) {
+        NSLog(@"onCreateOrg : FAIL : Group Creation");
     }else{
-        NSLog(@"FAIL : DELETE");
-    }*/
+        NSLog(@"onCreateOrg : SUCCESS : Group Creation");
+        NSLog(@"group URI:%@",uri);
+        //save in userscope bucket named : teams
+        BOOL done = [SKii_Util saveInUserScopeBucket:self.loggedInUser
+                                            TeamName:sName
+                                              AndURI:uri];
+        
+        if (done == FALSE) {
+            NSLog(@"Could not save to bucket");
+        }else{
+            NSLog(@"Saved to Bucket");
+        }
+    }
 }
 
 -(void) onAddRole:(id)sender
 {
-    NSLog(@"onAddRole : TODO");
-    /*
-    BOOL isDone = [SKii_Util deleteGroup:self.currentOrg];
-    
-    if(isDone == TRUE){
-        NSLog(@"SUCCESS : DELETE");
+    NSLog(@"onAddRole");
+    NSString *sName = self.tPositionName.text;
+    NSString *uri = [SKii_Util createGroupWithName:sName];
+    if ([uri isEqualToString:@""]) {
+        NSLog(@"onCreateOrg : FAIL : Group Creation");
     }else{
-        NSLog(@"FAIL : DELETE");
-    }*/
+        NSLog(@"onCreateOrg : SUCCESS : Group Creation");
+        NSLog(@"group URI:%@",uri);
+        //save in userscope bucket named : positions
+        BOOL done = [SKii_Util saveInUserScopeBucket:self.loggedInUser
+                                        PositionName:sName
+                                              AndURI:uri];
+        
+        if (done == FALSE) {
+            NSLog(@"Could not save to bucket");
+        }else{
+            NSLog(@"Saved to Bucket");
+        }
+    }
 }
 @end

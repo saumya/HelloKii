@@ -24,8 +24,17 @@
 + (BOOL) deleteGroup:(KiiGroup *)group;
 
 + (void) createBucketInUserScope:(KiiUser *)user WithName:(NSString *)bucketName;
+
 + (BOOL) saveInUserScopeBucket:(KiiUser *)user CompanyName:(NSString *)name AndURI:(NSString *)uri;
 + (BOOL) removeFromUserScopeBucket:(KiiUser *)user CompanyName:(NSString *)name AndURI:(NSString *)uri;
+
++ (BOOL)saveInUserScopeBucket:(KiiUser *)user PositionName:(NSString *)name AndURI:(NSString *)uri;
++ (BOOL)removeFromUserScopeBucket:(KiiUser *)user PositionName:(NSString *)name AndURI:(NSString *)uri;
+
++ (BOOL)saveInUserScopeBucket:(KiiUser *)user TeamName:(NSString *)name AndURI:(NSString *)uri;
++ (BOOL)removeFromUserScopeBucket:(KiiUser *)user TeamName:(NSString *)name AndURI:(NSString *)uri;
+
+
 
 
 @end

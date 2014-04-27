@@ -160,11 +160,7 @@
 }
 
 -(void)onCreateOrg:(id)sender
-{
-    //has created
-    // uri :kiicloud://groups/3jrjff89se3laughwwqcgb4he
-    // name :myFirstCompany
-    
+{   
     NSString *sName = self.tOrgName.text;
     NSString *groupURI = [SKii_Util createGroupWithName:sName];
     if ([groupURI isEqualToString:@""]) {
