@@ -14,6 +14,7 @@
 
 @implementation SOrgViewController
 
+@synthesize loggedInUser;
 @synthesize currentOrg;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -51,15 +52,53 @@
 
 #pragma mark - User Action
 
--(void) onTrashOrg:(id)sender
+-(void) onRemoveOrg:(id)sender
 {
     NSLog(@"onTrashOrg");
+    
+    NSString *orgName = self.currentOrg.name;
+    NSString *orgURI = [self.currentOrg objectURI];
+    
     BOOL isDone = [SKii_Util deleteGroup:self.currentOrg];
     if(isDone == TRUE){
         NSLog(@"SUCCESS : DELETE");
+        //Remove from the Bucket
+        BOOL isDone1 = [SKii_Util removeFromUserScopeBucket:self.loggedInUser
+                                                CompanyName:orgName
+                                                     AndURI:orgURI];
+        if (isDone1 == TRUE) {
+            NSLog(@"SUCCESS: Removed from Bucket");
+        }else{
+            NSLog(@"FAIL : REMOVE from BUCKET!");
+        }
     }else{
         NSLog(@"FAIL : DELETE");
     }
 }
 
+-(void) onAddTeam:(id)sender
+{
+    NSLog(@"onAddTeam : TODO");
+    /*
+    //BOOL isDone = [SKii_Util deleteGroup:self.currentOrg];
+    
+    if(isDone == TRUE){
+        NSLog(@"SUCCESS : DELETE");
+    }else{
+        NSLog(@"FAIL : DELETE");
+    }*/
+}
+
+-(void) onAddRole:(id)sender
+{
+    NSLog(@"onAddRole : TODO");
+    /*
+    BOOL isDone = [SKii_Util deleteGroup:self.currentOrg];
+    
+    if(isDone == TRUE){
+        NSLog(@"SUCCESS : DELETE");
+    }else{
+        NSLog(@"FAIL : DELETE");
+    }*/
+}
 @end

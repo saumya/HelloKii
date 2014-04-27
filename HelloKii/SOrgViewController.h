@@ -16,7 +16,11 @@
     //
 }
 
+@property (nonatomic, retain) KiiUser *loggedInUser;
 @property (nonatomic,retain) KiiGroup *currentOrg;
-- (IBAction) onTrashOrg:(id)sender;
+- (IBAction) onRemoveOrg:(id)sender;
+
+- (IBAction) onAddTeam:(id)sender;
+- (IBAction) onAddRole:(id)sender;
 
 @end

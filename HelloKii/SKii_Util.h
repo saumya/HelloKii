@@ -23,5 +23,9 @@
 + (NSArray *) getAllGroupsCreatedByMe:(KiiUser *)user;
 + (BOOL) deleteGroup:(KiiGroup *)group;
 
++ (void) createBucketInUserScope:(KiiUser *)user WithName:(NSString *)bucketName;
++ (BOOL) saveInUserScopeBucket:(KiiUser *)user CompanyName:(NSString *)name AndURI:(NSString *)uri;
++ (BOOL) removeFromUserScopeBucket:(KiiUser *)user CompanyName:(NSString *)name AndURI:(NSString *)uri;
+
 
 @end

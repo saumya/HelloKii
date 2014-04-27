@@ -134,6 +134,7 @@
     if ([[segue identifier] isEqualToString:@"segueToOrg"])
     {
         SOrgViewController *vc = [segue destinationViewController];
+        vc.loggedInUser = self.loggedInUser;
         vc.currentOrg = self.userSelectedGroup;
     }
 }
@@ -167,10 +168,19 @@
     NSString *sName = self.tOrgName.text;
     NSString *groupURI = [SKii_Util createGroupWithName:sName];
     if ([groupURI isEqualToString:@""]) {
-        NSLog(@"FAIL : Group Creation");
+        NSLog(@"onCreateOrg : FAIL : Group Creation");
     }else{
-        NSLog(@"SUCCESS : Group Creation");
+        NSLog(@"onCreateOrg : SUCCESS : Group Creation");
         NSLog(@"group URI:%@",groupURI);
+        //save in userscope bucket named : companies
+        BOOL done = [SKii_Util saveInUserScopeBucket:self.loggedInUser
+                                         CompanyName:sName
+                                              AndURI:groupURI];
+        if (done == FALSE) {
+            NSLog(@"Could not save to bucket");
+        }else{
+            NSLog(@"Saved to Bucket");
+        }
     }
 }
 
