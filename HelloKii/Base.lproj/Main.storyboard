@@ -330,6 +330,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="All Role / Team" id="x1e-9M-cF0"/>
+                    <connections>
+                        <outlet property="tvAllList" destination="oy2-UW-aDp" id="d5U-fI-Vs2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gm2-Wt-jff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
