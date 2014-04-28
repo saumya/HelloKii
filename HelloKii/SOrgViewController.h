@@ -10,8 +10,10 @@
 #import <KiiSDK/Kii.h>
 
 #import "SKii_Util.h"
+#import "SDisplayAllTeamAndRoleViewController.h"
 
 @interface SOrgViewController : UIViewController
+<UITableViewDataSource, UITableViewDelegate>
 {
     //
 }
@@ -22,9 +24,16 @@
 @property (nonatomic, retain) IBOutlet UITextField *tPositionName;
 @property (nonatomic, retain) IBOutlet UITextField *tTeamName;
 
+@property (retain, nonatomic) IBOutlet UITableView *tvAllUsers;
+@property (nonatomic, retain) NSMutableArray *allUsersForApplication;
+
 - (IBAction) onRemoveOrg:(id)sender;
 
 - (IBAction) onAddTeam:(id)sender;
 - (IBAction) onAddRole:(id)sender;
+
+- (IBAction) onViewTeams:(id)sender;
+- (IBAction) onViewRoles:(id)sender;
+@property (nonatomic, retain) NSString *sGoingToView;//teams or roles
 
 @end

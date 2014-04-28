@@ -78,6 +78,13 @@
     return isDone;
 }
 
++ (NSMutableArray *) getAllRegisteredUsers:(KiiUser *)user
+{
+    NSMutableArray *result;
+    //TODO
+    return result;
+}
+
 #pragma mark - Group
 + (NSString *) createGroupWithName:(NSString *)gName
 {
@@ -199,6 +206,7 @@
 
 + (NSMutableArray *) getAllFromUserScope:(KiiUser *)user WithBucketName:(NSString *)bucketName
 {
+    NSLog(@"BucketName=%@",bucketName);
     NSError *error = nil;
     //NSString *bucketName = @"companies";
     KiiBucket *bucket = [user bucketWithName:bucketName];
@@ -215,6 +223,7 @@
         NSLog(@"%@",error);
     }else{
         NSLog(@"SUCCESS : getting data from Bucket");
+        NSLog(@"%@",allResults);
     }
     return allResults;
 }
