@@ -78,6 +78,13 @@
     return isDone;
 }
 
++ (NSMutableArray *) getAllRegisteredUsers:(KiiUser *)user
+{
+    NSMutableArray *result;
+    //TODO
+    return result;
+}
+
 #pragma mark - Group
 + (NSString *) createGroupWithName:(NSString *)gName
 {

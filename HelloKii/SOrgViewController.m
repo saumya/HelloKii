@@ -17,6 +17,9 @@
 @synthesize loggedInUser;
 @synthesize currentOrg;
 
+@synthesize tvAllUsers;
+@synthesize allUsersForApplication;
+
 @synthesize tPositionName;
 @synthesize tTeamName;
 
@@ -36,12 +39,50 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = self.currentOrg.name;
+    //get data from Kii
+    
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return self.allUsersForApplication.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+    //cell = [self tableCellWithHeight:height clickable:NO withArrowAccessory:NO];
+    
+    KiiUser *kUser = [self.allUsersForApplication objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = [kUser username];
+    //cell.detailTextLabel.text = [kObject getObjectForKey:@"companyURI"];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"tableView:didSelectRowAtIndexPath:");
+    
 }
 
 

@@ -13,6 +13,7 @@
 #import "SDisplayAllTeamAndRoleViewController.h"
 
 @interface SOrgViewController : UIViewController
+<UITableViewDataSource, UITableViewDelegate>
 {
     //
 }
@@ -22,6 +23,9 @@
 
 @property (nonatomic, retain) IBOutlet UITextField *tPositionName;
 @property (nonatomic, retain) IBOutlet UITextField *tTeamName;
+
+@property (retain, nonatomic) IBOutlet UITableView *tvAllUsers;
+@property (nonatomic, retain) NSMutableArray *allUsersForApplication;
 
 - (IBAction) onRemoveOrg:(id)sender;
 
