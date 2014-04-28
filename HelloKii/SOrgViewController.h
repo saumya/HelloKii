@@ -10,6 +10,7 @@
 #import <KiiSDK/Kii.h>
 
 #import "SKii_Util.h"
+#import "SDisplayAllTeamAndRoleViewController.h"
 
 @interface SOrgViewController : UIViewController
 {
@@ -26,5 +27,9 @@
 
 - (IBAction) onAddTeam:(id)sender;
 - (IBAction) onAddRole:(id)sender;
+
+- (IBAction) onViewTeams:(id)sender;
+- (IBAction) onViewRoles:(id)sender;
+@property (nonatomic, retain) NSString *sGoingToView;//teams or roles
 
 @end

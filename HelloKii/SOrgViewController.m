@@ -20,6 +20,8 @@
 @synthesize tPositionName;
 @synthesize tTeamName;
 
+@synthesize sGoingToView;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -42,7 +44,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -50,8 +52,11 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    SDisplayAllTeamAndRoleViewController *vc = [segue destinationViewController];
+    vc.loggedInUser = self.loggedInUser;
+    vc.sListType = self.sGoingToView;
 }
-*/
+
 
 #pragma mark - User Action
 
@@ -124,4 +129,26 @@
         }
     }
 }
+
+
+- (void) onViewTeams:(id)sender
+{
+    NSLog(@"onViewTeams");
+    self.sGoingToView = @"teams";
+    [self performSegueWithIdentifier:@"segueToListAll" sender:self];
+}
+
+- (void) onViewRoles:(id)sender
+{
+    NSLog(@"onViewRoles");
+    self.sGoingToView = @"roles";
+    [self performSegueWithIdentifier:@"segueToListAll" sender:self];
+}
+
+
+
+
+
+
+
 @end
